@@ -1,0 +1,970 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< org.acme:quarkus-introduction >--------------------
+[INFO] Building quarkus-introduction 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ quarkus-introduction ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ quarkus-introduction ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- quarkus-maven-plugin:0.11.0:dev (default-cli) @ quarkus-introduction ---
+[INFO] Using servlet resources /home/baptiste/IdeaProjects/quarkus-introduction/src/main/resources/META-INF/resources
+Listening for transport dt_socket at address: 5005
+2019-03-17 20:57:47,038 INFO  [io.qua.dep.QuarkusAugmentor] (main) Beginning quarkus augmentation
+2019-03-17 20:57:47,583 INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 545ms
+Hibernate: 
+    
+    drop table Portfolio if exists
+Hibernate: 
+    
+    drop sequence if exists known_portfolios_id_seq
+Hibernate: create sequence known_portfolios_id_seq start with 1 increment by 50
+Hibernate: 
+    
+    create table Portfolio (
+       id bigint not null,
+        amount integer not null,
+        code varchar(255),
+        devise integer,
+        manager varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (1,'PTF0000001',5702,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (2,'PTF0000002',9552,0,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (3,'PTF0000003',7698,0,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (4,'PTF0000004',7334,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (5,'PTF0000005',7034,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (6,'PTF0000006',6724,0,'Antoine')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (7,'PTF0000007',9606,0,'Antoine')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (8,'PTF0000008',9904,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (9,'PTF0000009',6392,1,'Antoine')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (10,'PTF0000010',8147,0,'Antoine')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (11,'PTF0000011',9806,1,'Antoine')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (12,'PTF0000012',9861,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (13,'PTF0000013',8377,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (14,'PTF0000014',7210,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (15,'PTF0000015',9059,1,'Baptiste')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (16,'PTF0000016',8399,1,'Antoine')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (17,'PTF0000017',6718,0,'Achref')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (18,'PTF0000018',5693,1,'Antoine')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (19,'PTF0000019',9306,1,'Achref')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (20,'PTF0000020',7724,1,'Achref')
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (1,'PTF0000001',5702,1,'Baptiste')
+2019-03-17 20:57:48,347 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (1,'PTF0000001',5702,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (1,'PTF0000001',5702,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (1,'PTF0000001',5702,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (2,'PTF0000002',9552,0,'Baptiste')
+2019-03-17 20:57:48,348 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (2,'PTF0000002',9552,0,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (2,'PTF0000002',9552,0,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (2,'PTF0000002',9552,0,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (3,'PTF0000003',7698,0,'Baptiste')
+2019-03-17 20:57:48,349 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (3,'PTF0000003',7698,0,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (3,'PTF0000003',7698,0,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (3,'PTF0000003',7698,0,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (4,'PTF0000004',7334,1,'Baptiste')
+2019-03-17 20:57:48,349 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (4,'PTF0000004',7334,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (4,'PTF0000004',7334,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (4,'PTF0000004',7334,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (5,'PTF0000005',7034,1,'Baptiste')
+2019-03-17 20:57:48,350 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (5,'PTF0000005',7034,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (5,'PTF0000005',7034,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (5,'PTF0000005',7034,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (6,'PTF0000006',6724,0,'Antoine')
+2019-03-17 20:57:48,351 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (6,'PTF0000006',6724,0,'Antoine')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (6,'PTF0000006',6724,0,'Antoine')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (6,'PTF0000006',6724,0,'Antoine') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (7,'PTF0000007',9606,0,'Antoine')
+2019-03-17 20:57:48,351 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (7,'PTF0000007',9606,0,'Antoine')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (7,'PTF0000007',9606,0,'Antoine')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (7,'PTF0000007',9606,0,'Antoine') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (8,'PTF0000008',9904,1,'Baptiste')
+2019-03-17 20:57:48,352 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (8,'PTF0000008',9904,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (8,'PTF0000008',9904,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (8,'PTF0000008',9904,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (9,'PTF0000009',6392,1,'Antoine')
+2019-03-17 20:57:48,352 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (9,'PTF0000009',6392,1,'Antoine')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (9,'PTF0000009',6392,1,'Antoine')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (9,'PTF0000009',6392,1,'Antoine') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (10,'PTF0000010',8147,0,'Antoine')
+2019-03-17 20:57:48,353 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (10,'PTF0000010',8147,0,'Antoine')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (10,'PTF0000010',8147,0,'Antoine')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (10,'PTF0000010',8147,0,'Antoine') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (11,'PTF0000011',9806,1,'Antoine')
+2019-03-17 20:57:48,353 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (11,'PTF0000011',9806,1,'Antoine')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (11,'PTF0000011',9806,1,'Antoine')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (11,'PTF0000011',9806,1,'Antoine') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (12,'PTF0000012',9861,1,'Baptiste')
+2019-03-17 20:57:48,354 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (12,'PTF0000012',9861,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (12,'PTF0000012',9861,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (12,'PTF0000012',9861,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (13,'PTF0000013',8377,1,'Baptiste')
+2019-03-17 20:57:48,354 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (13,'PTF0000013',8377,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (13,'PTF0000013',8377,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (13,'PTF0000013',8377,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (14,'PTF0000014',7210,1,'Baptiste')
+2019-03-17 20:57:48,355 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (14,'PTF0000014',7210,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (14,'PTF0000014',7210,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (14,'PTF0000014',7210,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (15,'PTF0000015',9059,1,'Baptiste')
+2019-03-17 20:57:48,356 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (15,'PTF0000015',9059,1,'Baptiste')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (15,'PTF0000015',9059,1,'Baptiste')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (15,'PTF0000015',9059,1,'Baptiste') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (16,'PTF0000016',8399,1,'Antoine')
+2019-03-17 20:57:48,356 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (16,'PTF0000016',8399,1,'Antoine')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (16,'PTF0000016',8399,1,'Antoine')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (16,'PTF0000016',8399,1,'Antoine') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (17,'PTF0000017',6718,0,'Achref')
+2019-03-17 20:57:48,357 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (17,'PTF0000017',6718,0,'Achref')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (17,'PTF0000017',6718,0,'Achref')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (17,'PTF0000017',6718,0,'Achref') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (18,'PTF0000018',5693,1,'Antoine')
+2019-03-17 20:57:48,357 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (18,'PTF0000018',5693,1,'Antoine')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (18,'PTF0000018',5693,1,'Antoine')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (18,'PTF0000018',5693,1,'Antoine') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (19,'PTF0000019',9306,1,'Achref')
+2019-03-17 20:57:48,358 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (19,'PTF0000019',9306,1,'Achref')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (19,'PTF0000019',9306,1,'Achref')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (19,'PTF0000019',9306,1,'Achref') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+Hibernate: 
+    INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (20,'PTF0000020',7724,1,'Achref')
+2019-03-17 20:57:48,358 WARN  [org.hib.too.sch.int.ExceptionHandlerLoggedImpl] (main) GenerationTarget encountered exception accepting command : Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (20,'PTF0000020',7724,1,'Achref')" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (20,'PTF0000020',7724,1,'Achref')" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:493)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:180)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:80)
+	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:68)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:114)
+	at io.quarkus.hibernate.orm.runtime.JPAConfig.startAll(JPAConfig.java:71)
+	at io.quarkus.hibernate.orm.runtime.HibernateOrmTemplate.startAllPersistenceUnits(HibernateOrmTemplate.java:88)
+	at io.quarkus.deployment.steps.HibernateOrmProcessor$startPersistenceUnits12.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl1.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:93)
+	at io.quarkus.runner.RuntimeRunner.run(RuntimeRunner.java:119)
+	at io.quarkus.dev.DevModeMain.doStart(DevModeMain.java:121)
+	at io.quarkus.dev.DevModeMain.main(DevModeMain.java:82)
+Caused by: org.h2.jdbc.JdbcSQLException: Violation dindex unique ou clé primaire: {0}
+Unique index or primary key violation: {0}; SQL statement:
+INSERT INTO PORTFOLIO (ID,CODE,AMOUNT,DEVISE,MANAGER) VALUES (20,'PTF0000020',7724,1,'Achref') [23505-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.mvstore.db.MVPrimaryIndex.add(MVPrimaryIndex.java:123)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:732)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:182)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at io.agroal.pool.wrapper.StatementWrapper.execute(StatementWrapper.java:221)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 22 more
+
+2019-03-17 20:57:48,421 INFO  [io.quarkus] (main) Quarkus 0.11.0 started in 1.500s. Listening on: http://127.0.0.1:8080
+2019-03-17 20:57:48,421 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, narayana-jta, resteasy, resteasy-jsonb]
+Hibernate: 
+    SELECT
+        ID,
+        CODE,
+        AMOUNT,
+        DEVISE,
+        MANAGER 
+    FROM
+        Portfolio 
+    ORDER BY
+        id ASC LIMIT ? ,
+        ? 
+2019-03-17 20:58:01,069 INFO  [io.quarkus] (Quarkus Shutdown Thread) Quarkus stopped in 0.009s

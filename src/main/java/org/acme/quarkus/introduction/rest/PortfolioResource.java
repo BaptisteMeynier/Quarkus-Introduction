@@ -2,13 +2,17 @@ package org.acme.quarkus.introduction.rest;
 
 
 import org.acme.quarkus.introduction.model.Portfolio;
-import org.acme.quarkus.introduction.repository.PortfolioRepository;
 import org.acme.quarkus.introduction.rest.param.PaginationParam;
+import org.acme.quarkus.introduction.service.PortfolioService;
 
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -17,16 +21,17 @@ import java.util.concurrent.CompletionStage;
 @Path("portfolio")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@ApplicationScoped
 public class PortfolioResource {
 
     @Inject
-    private PortfolioRepository portfolioRepository;
+    PortfolioService portfolioService;
 
     @GET
-    public CompletionStage<List<Portfolio>> doGet(@BeanParam PaginationParam queryParams) {
+    public CompletionStage<Portfolio[]> doGet(@BeanParam PaginationParam queryParams) {
         return CompletableFuture.supplyAsync(() -> {
             int offset = queryParams.per_page * (queryParams.page - 1);
-            return portfolioRepository.getPortfolios(offset, queryParams.per_page);
+            return portfolioService.findPortfolio(offset,queryParams.per_page);
         });
     }
 
