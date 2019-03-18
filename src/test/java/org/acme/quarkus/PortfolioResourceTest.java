@@ -5,17 +5,19 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.iterableWithSize;
 
 @QuarkusTest
-public class GreetingResourceTest {
+public class PortfolioResourceTest {
 
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/hello")
+          .when().get("/portfolio?per_page=5&page=2")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body("$.size()", is(5));
     }
 
 }
