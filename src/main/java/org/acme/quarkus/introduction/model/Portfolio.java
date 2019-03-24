@@ -4,13 +4,14 @@ package org.acme.quarkus.introduction.model;
 import org.acme.quarkus.introduction.model.enums.Devise;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Portfolio")
 public class Portfolio {
     @Id
-    @SequenceGenerator(name = "portfoliosSequence",sequenceName = "known_portfolios_id_seq")
-    @GeneratedValue(generator = "portfoliosSequence")
+    @SequenceGenerator(name = "portfoliosSequence",sequenceName = "known_portfolios_id_seq",initialValue = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO,generator = "portfoliosSequence")
     private long id;
     private String code;
     private int amount;
